@@ -6,6 +6,8 @@ variable name written in camelCase'''
 
 
 def snake_to_camel(snake_case):
+    """ Return a string that was originally in snake case to camel case """
+
     i = 0
     snake_case_lst = list(snake_case)
     while i < len(snake_case_lst):
@@ -13,8 +15,13 @@ def snake_to_camel(snake_case):
             snake_case_lst = snake_case_lst[0:i] + snake_case_lst[i+1:]
             snake_case_lst[i] = snake_case_lst[i].capitalize()
         i += 1
-    print ''.join(snake_case_lst)
+    return ''.join(snake_case_lst)
 
-snake_to_camel('hi_balloonicorn')
-snake_to_camel('cat_dog')
-snake_to_camel('cat_dog_bird')
+
+def test():
+    assert snake_to_camel('hi_balloonicorn') == 'hiBalloonicorn'
+    assert snake_to_camel('cat_dog') == 'catDog'
+    assert snake_to_camel('cat_dog_bird') == 'catDogBird'
+    print 'Tests passed'
+
+test()
