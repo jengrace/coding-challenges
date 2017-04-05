@@ -35,18 +35,17 @@ class LinkedList(object):
 def reverse_linked_list_in_place(lst):
     """Given linked list, reverse the nodes in this linked list in place."""
 
-    temp_head = lst.head
-    current = temp_head.next
-    temp_head.next = None
-    while current.next is not None:
-        temp = current
-        temp2 = temp.next
-        temp.next = temp_head
-        temp_head = temp
-        current = current.next
-    current.next = temp
-    lst.head = current
+    prev = None
+    current = lst.head
+
+    while current is not None:
+        next = current.next
+        current.next = prev
+        prev = current
+        current = next
+
+    lst.head = prev
 
 ll = LinkedList(Node(1, Node(2, Node(3))))
-# reverse_linked_list_in_place(ll)
+reverse_linked_list_in_place(ll)
 print ll.as_string()
