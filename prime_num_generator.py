@@ -8,33 +8,36 @@ def primes(count):
     [2, 3, 5, 7, 11]
 
     """
+    prime_nums = []
+    i = 2
+    while len(prime_nums) < count:
+        if is_prime(i) is True:
+            prime_nums.append(i)
+        i = i + 1
+    return prime_nums
 
-    # prime_nums = []
-    # i = 0
 
-    # while i < count:
-    #     print i
-    #     i += 1
+def is_prime(num):
+    if num == 2:
+        return True
+    if num % 2 != 0:  # analyze only the odd nums
+        i = num/2
+        keep_trying = True
+        while i > 1 and keep_trying is True:
+            if num % i == 0:
+                keep_trying = False
+            i -= 1
+        if keep_trying is True:
+            return True
 
-    # a number is prime only if it divisible by itself and 1
 
-    n = 3
-    odd_nums = []
-    while n < 20:
-        if n % 2 != 0:
-            odd_nums.append(n)
-        n += 1
-    for num in odd_nums:
-        print num
-
-primes(5)
 #####################################################################
 
-# if __name__ == "__main__":
-#     import doctest
+if __name__ == "__main__":
+    import doctest
 
-#     print
-#     result = doctest.testmod()
-#     if not result.failed:
-#         print "ALL TESTS PASSED. GOOD WORK!"
-#     print
+    print
+    result = doctest.testmod()
+    if not result.failed:
+        print "ALL TESTS PASSED. GOOD WORK!"
+    print

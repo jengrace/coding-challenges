@@ -17,13 +17,33 @@ def binary_search(val):
     7
 
     """
+    # l = [] # list of number of guesses
+    # for i in range(1,101):
+    #     l.append(binary_search(i)) # number of guesses
+    #  return max(l)
 
     assert 0 < val < 101, "Val must be between 1-100"
 
     num_guesses = 0
 
-    return num_guesses
+    guess = 50
+    low = 0
+    high = 100
 
+    while guess != val:
+        if guess > val:
+            high = guess
+            guess = round((high + low)/2)
+            num_guesses += 1
+        if guess < val:
+            low = guess
+            guess = round((high + low)/2)
+            num_guesses += 1
+
+    if guess == val:
+        num_guesses += 1
+
+    return num_guesses
 
 #####################################################################
 
