@@ -15,9 +15,9 @@ def is_pangram(sentence):
     for letter in sentence:
         if letter in alphabet:
             alphabet.remove(letter)
-    if alphabet:
-        return False
-    return True
+    if len(alphabet) == 0:
+        return True
+    return False
 
 #####################################################################
 
