@@ -49,3 +49,13 @@ def reverse_linked_list_in_place(lst):
 ll = LinkedList(Node(1, Node(2, Node(3))))
 reverse_linked_list_in_place(ll)
 print ll.as_string()
+
+#####################################################################
+if __name__ == "__main__":
+    import doctest
+
+    print
+    result = doctest.testmod()
+    if not result.failed:
+        print "ALL TESTS PASSED. GOOD WORK!"
+    print
